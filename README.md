@@ -32,7 +32,21 @@
 - 加入UE开发者，因为使用的是UE4.27源码版的分支。
 - [克隆4.27 HTML5 ES3 (WebGL2)项目](https://github.com/SpeculativeCoder/UnrealEngine/tree/4.27-html5-es3)。（[GitHub项目首页](https://github.com/SpeculativeCoder/UnrealEngine-HTML5-ES3)）
 - 安装[Git for Windows](https://git-scm.com/downloads)
-- 安装[CMake](https://github.com/Kitware/CMake/releases/download/v3.27.0-rc3/cmake-3.27.0-rc3-windows-x86_64.msi)(不能是VS里面安装的Cmake)
+- 安装[CMake](https://github.com/Kitware/CMake/releases/download/v3.27.0-rc3/cmake-3.27.0-rc3-windows-x86_64.msi)(不能是VS里面安装的Cmake)且安装过程中必须点击**Add CMake to the system PATH for all users**
+![Install_2](./CMakeInstall_2.png)
+
+安装的步骤参照下图（觉得太啰嗦了跳过这一组图）
+1. 点击勾选框后点击next
+![Install_1](./CMakeInstall_1.png)
+2. 点击**Add CMake to the system PATH for all users**后点击next
+![Install_2](./CMakeInstall_2.png)
+3. 点击next
+![Install_3](./CMakeInstall_3.png)
+4. 点击next弹窗后点是没弹窗不管
+![Install_4](./CMakeInstall_4.png)
+5. 点击Finish
+![Install_5](./CMakeInstall_5.png)
+
 - Python 3.*(我在VS里安装了，可能有用吧。Github上原话：(watch out for Windows Python app installer "app execution aliases" which may cause problems - recommend setting these to disabled - see [this Stack Overflow post](https://stackoverflow.com/a/61958044)))
 
 # 开始安装
