@@ -47,7 +47,8 @@
 5. 点击Finish
 ![Install_5](./CMakeInstall_5.png)
 
-- Python 3.*(我在VS里安装了，可能有用吧。Github上原话：(watch out for Windows Python app installer "app execution aliases" which may cause problems - recommend setting these to disabled - see [this Stack Overflow post](https://stackoverflow.com/a/61958044)))
+- Python 3.*(我在VS里安装了，可以在cmd中输入python查看python版本。Github上原话：(watch out for Windows Python app installer "app execution aliases" which may cause problems - recommend setting these to disabled - see [this Stack Overflow post](https://stackoverflow.com/a/61958044)))
+![CheckPythonVersion](CheckPythonVersion.png)
 
 # 开始安装
 
@@ -69,11 +70,13 @@
   如果你看到一个关于远程服务器返回错误或403 / Forbidden的错误，那么你可能没有正确应用上面的committee.gitdepth.xml修复。
 
 ## 4. 下载打包HTML5的依赖代码
-进入`Engine\Platforms\HTML5`路径你会看到有个`HTML5Setup.sh`文件。空白处右键点击GitBashHere。如果你没有这个。看看前面是不是漏了什么。如果你是Win11系统。展开更多选项即可
+进入`Engine\Platforms\HTML5`路径你会看到有个`HTML5Setup.sh`文件。空白处右键点击GitBashHere。如果你没有这个，需要安装Git。如果你是Win11系统。展开更多选项即可
 ![Path](./HTML5SetupPath.png)
 - Tips：需要换个网络下载，不然下载不成功，哪怕是HK或者其他网络也不行
 - **下载成功标识**这个操作是对UnrealEngine源代码进行一系列修复，下载emscripten SDK并构建各种支持库(例如PhysX)。这需要一段时间。在最后，一些通知声音将播放，让你知道它完成了，你应该看到一行`Success!`在一堆信息的最后面。如果你看不到`Success!`这一行，那么就有问题了，任何进一步的步骤都会遇到问题。HTML5Setup.sh步骤的任何问题也经常会使Engine/Platforms/HTML/Build/emsdk处于损坏状态，因此删除该目录才能重试。
 - 如果运行没几次就报错了一定是没安装CMake。我出现的情况有:**无法解析命令CMake**,**无法运行什么什么二进制文件**。需要使用上面的链接安装CMake
+- 7月2号更新，个别电脑会出现运行完毕，但是依赖库未下载完成。（如下图）这个目前并没有找到原因。如果有解决的朋友可以通过B站联系我。我将更新该文档。让大家为虚幻的社区贡献自己的一份力吧！
+![HTML5SetupRunWarning](HTML5SetupRunWarning.png)
 
 ## 5. 修改版本号
 这时候别高兴，这里需要改个文件夹名字。不然编译不过
