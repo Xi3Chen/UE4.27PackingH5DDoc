@@ -29,7 +29,7 @@
 
 # 准备工作
 - 确定你的IDE支持编译UEC++项目，并且安装VS2022，使用Win10的C++SDK
-- 加入UE开发者，因为使用的是UE4.27源码版的分支。
+- [加入UE开发者（单击查看教程）](https://www.unrealengine.com/zh-CN/ue-on-github)，因为使用的是UE4.27源码版的分支。
 - [克隆4.27 HTML5 ES3 (WebGL2)项目](https://github.com/SpeculativeCoder/UnrealEngine/tree/4.27-html5-es3)。（[GitHub项目首页](https://github.com/SpeculativeCoder/UnrealEngine-HTML5-ES3)）
 - 安装[Git for Windows](https://git-scm.com/downloads)
 - 安装[CMake](https://github.com/Kitware/CMake/releases/download/v3.27.0-rc3/cmake-3.27.0-rc3-windows-x86_64.msi)(不能是VS里面安装的Cmake)且安装过程中必须点击**Add CMake to the system PATH for all users**
