@@ -20,6 +20,9 @@
 ## 版权问题
   本文档禁止售卖，原作者是[BILIBILI：c釸晨](https://space.bilibili.com/320495524?spm_id_from=333.1007.0.0)。
   其他例如代码版权[看Github上项目的授权介绍吧](https://github.com/SpeculativeCoder/UnrealEngine-HTML5-ES3)
+  
+  >感谢名单：
+  >- 感谢大佬“[与一糖糖]()”解决在科学网络下**运行`HTML5Setup.sh`依然出错的问题**以及**正确解决UBT提示node最新版本的文件无法找到的问题。已删除原本修改文件夹的编译方式。**（按照其本人意愿只显示Bilibili的用户名而不是用户主页）。问题形成原因会在之后写出。
 
 ## 教程可能有时效问题
 本教程可能在一段时间之后不再有效果。但是如法炮制应该是能走通的。
@@ -46,6 +49,8 @@
 ![Install_4](./Image/CMakeInstall_4.png)
 5. 点击Finish
 ![Install_5](./Image/CMakeInstall_5.png)
+6. 在git bash中输入`cmake --version`确保正确返回版本信息（如下图）如果没有出现，可以重启一下电脑
+![checkCmakeVersion](./Image/checkCmakeVersion.png)
 
 - Python 3.*(我在VS里安装了，可以在cmd中输入python查看python版本。Github上原话：(watch out for Windows Python app installer "app execution aliases" which may cause problems - recommend setting these to disabled - see [this Stack Overflow post](https://stackoverflow.com/a/61958044)))
 ![CheckPythonVersion](./Image/CheckPythonVersion.png)
@@ -73,15 +78,32 @@
 进入`Engine\Platforms\HTML5`路径你会看到有个`HTML5Setup.sh`文件。空白处右键点击GitBashHere。如果你没有这个，需要安装Git。如果你是Win11系统。展开更多选项即可
 ![Path](./Image/HTML5SetupPath.png)
 - Tips：需要换个网络下载，不然下载不成功，哪怕是HK或者其他网络也不行
-- **下载成功标识**这个操作是对UnrealEngine源代码进行一系列修复，下载emscripten SDK并构建各种支持库(例如PhysX)。这需要一段时间。在最后，一些通知声音将播放，让你知道它完成了，你应该看到一行`Success!`在一堆信息的最后面。如果你看不到`Success!`这一行，那么就有问题了，任何进一步的步骤都会遇到问题。HTML5Setup.sh步骤的任何问题也经常会使Engine/Platforms/HTML/Build/emsdk处于损坏状态，因此删除该目录才能重试。
-- 如果运行没几次就报错了一定是没安装CMake。我出现的情况有:**无法解析命令CMake**,**无法运行什么什么二进制文件**。需要使用上面的链接安装CMake
-- 7月2号更新，个别电脑会出现运行完毕，但是依赖库未下载完成。（如下图）这个目前并没有找到原因。如果有解决的朋友可以通过B站联系我。我将更新该文档。让大家为虚幻的社区贡献自己的一份力吧！
+- **下载成功标识**这个操作是对UnrealEngine源代码进行一系列修复，下载emscripten SDK并构建各种支持库(例如PhysX)。这需要一段时间。在最后，一些通知声音将播放，让你知道它完成了，你应该看到一行`Success!`在一堆信息的最后面。如果你看不到`Success!`这一行，那么就有问题了，任何进一步的步骤都会遇到问题。HTML5Setup.sh步骤的任何问题也经常会使Engine/Platforms/HTML5/Build/emsdk处于损坏状态，因此删除该目录才能重试。
+- 如果运行没几次就报错了并且提示：**无法解析命令CMake**,**无法运行什么什么二进制文件**。需要使用上面的链接安装CMake
+- 7月31号更新，个别电脑会出现运行完毕，但是依赖库未下载完成。（类似下图）这个问题由 **“[与一糖糖]()”大佬解决的**
+
 ![HTML5SetupRunWarning](./Image/HTML5SetupRunWarning.png)
 
+### 4.1 在网络通常（梯子访问通畅）的时候运行HTML5Setup.sh后未出现`Success`时
+- 问题原因：git bash没有获取到emsdk的环境。导致之后的操作都不成功
+- 手动删除Engine/Platforms/HTML5/Build/emsdk里面的内容（如果有的话）
+- 请检查是否是CMake环境原因
+- 检查是否是python环境原因
+
+> #### 4.1.1 并拉取emsdk源码
+> - 进入`Engine/Platforms/HTML5/Build/emsdk`文件夹在git bash中输入`git clone https://github.com/emscripten-core/emsdk`拉取emsdk源码或者下载发布的压缩包。
+> - 进入`Engine/Platforms/HTML5/Build/emsdk`中查看`emscripten-releases-tags.json`文件记住版本号，如下图：![RemindEmsdkVersion](./Image/RemindEmsdkVersion.png)并填入HTML5Setup.sh脚本中的EMVER值。![ChangeEMVER](./Image/ChangeEMVER.png)
+> - 修改拉取的emsdk文件夹名字改为emsdk加HTML5Setup.sh脚本脚本中EMVER的值。并且打开，在该目录下运行powershell 输入`.\emsdk.bat install 3.1.44`注意！！3.1.44是HTML5Setup.sh脚本脚本中EMVER的值。可能随着版本更迭，需要替换为其他值。
+> - 命令运行完之后输入不要关闭窗口，输入：`.\emsdk.bat install mingw-7.1.0-64bit`
+> - 命令运行完之后输入不要关闭窗口，输入：`.\emsdk.bat activate 3.1.44`注意！！3.1.44是HTML5Setup.sh脚本脚本中EMVER的值。可能随着版本更迭，需要替换为其他值。
+> - 命令运行完之后输入不要关闭窗口，输入：`.\emsdk_env.bat`
+> - 确保文件夹结构如下，如果不同。则检查网络后重新install![emsdkDirs](./Image/emsdkDirs.png)
+> - 进入`Engine\Platforms\HTML5\Build\BatchFiles`打开`Build_All_HTML5_libs.sh`将第41行的`EMSDKVER`改为`3.1.44`注意！！3.1.44是HTML5Setup.sh脚本脚本中EMVER的值。可能随着版本更迭，需要替换为其他值。
+> - 运行HTML5Setup.sh脚本。
+> - （出现Success则忽略这一步。）运行HTML5Setup.sh脚本如果没有出现`Success`则进入`Engine\Platforms\HTML5\Build\BatchFiles`打开`Build_All_HTML5_libs.sh`将第四行用#注释掉，然后取消注释第五行（去掉#）查看报错提示已知的报错提示是CMake报错，有版本不对问题，缓存问题（如果有其他的报错请通过[BILIBILI：c釸晨](https://space.bilibili.com/320495524?spm_id_from=333.1007.0.0)联系我）如果CMake报错的话直接去`\Engine\Platforms\HTML5`搜索CMakeCatch.List文件，这个是运行时的缓存文件，有它在必定会阻止CMake运行。安装正确版本并且删除CMakeCatch.List后再去git bash里运行HTML5Setup.sh脚本
+> - 成功时的界面![Success](./Image/success.png)
 ## 5. 修改版本号
-这时候别高兴，这里需要改个文件夹名字。不然编译不过
-进入`Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.39\node`文件夹后你会打开这个文件夹（废话活跃气氛）将现有的文件夹名字改成`15.14.0_64bit`。如果你打开后出现的文件夹名字就是这个，那么恭喜你，我不知道啥情况。本人下载后出现的是`16.20.0_64bit`上图
-![Version](./Image/RightVersion.png)
+打开Engine\Platforms\HTML5\Source\Programs\UnrealBuildTool\HTML5SDKInfo.cs将其中23行的NODE_VER为你`Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.39\node`中的名字。
 
 ## 6.开始常规的编译源码流程
 1. 回到引擎源码的根目录下运行GenerateProjectFiles.bat
