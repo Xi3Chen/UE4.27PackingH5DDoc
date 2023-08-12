@@ -93,12 +93,12 @@
 > #### 4.1.1 并拉取emsdk源码
 > - 进入`Engine/Platforms/HTML5/Build/emsdk`文件夹在git bash中输入`git clone https://github.com/emscripten-core/emsdk`拉取emsdk源码或者下载发布的压缩包。
 > - 进入`Engine/Platforms/HTML5/Build/emsdk`中查看`emscripten-releases-tags.json`文件记住版本号，如下图：![RemindEmsdkVersion](./Image/RemindEmsdkVersion.png)并填入HTML5Setup.sh脚本中的EMVER值。![ChangeEMVER](./Image/ChangeEMVER.png)
-> - 修改拉取的emsdk文件夹名字改为emsdk加HTML5Setup.sh脚本脚本中EMVER的值。并且打开，在该目录下运行powershell 输入`.\emsdk.bat install 3.1.44`注意！！3.1.44是HTML5Setup.sh脚本脚本中EMVER的值。可能随着版本更迭，需要替换为其他值。
+> - 修改拉取的emsdk文件夹名字改为emsdk加HTML5Setup.sh脚本脚本中EMVER的值。并且打开，在该目录下运行powershell 输入`.\emsdk.bat install 3.1.42`注意！！3.1.42是HTML5Setup.sh脚本脚本中EMVER的值。可能随着版本更迭，需要替换为其他值。
 > - 命令运行完之后输入不要关闭窗口，输入：`.\emsdk.bat install mingw-7.1.0-64bit`
-> - 命令运行完之后输入不要关闭窗口，输入：`.\emsdk.bat activate 3.1.44`注意！！3.1.44是HTML5Setup.sh脚本脚本中EMVER的值。可能随着版本更迭，需要替换为其他值。
+> - 命令运行完之后输入不要关闭窗口，输入：`.\emsdk.bat activate 3.1.42`注意！！3.1.42是HTML5Setup.sh脚本脚本中EMVER的值。可能随着版本更迭，需要替换为其他值。
 > - 命令运行完之后输入不要关闭窗口，输入：`.\emsdk_env.bat`
 > - 确保文件夹结构如下，如果不同。则检查网络后重新install![emsdkDirs](./Image/emsdkDirs.png)
-> - 进入`Engine\Platforms\HTML5\Build\BatchFiles`打开`Build_All_HTML5_libs.sh`将第41行的`EMSDKVER`改为`3.1.44`注意！！3.1.44是HTML5Setup.sh脚本脚本中EMVER的值。可能随着版本更迭，需要替换为其他值。
+> - 进入`Engine\Platforms\HTML5\Build\BatchFiles`打开`Build_All_HTML5_libs.sh`将第41行的`EMSDKVER`改为`3.1.42`注意！！3.1.42是HTML5Setup.sh脚本脚本中EMVER的值。可能随着版本更迭，需要替换为其他值。
 > - 运行HTML5Setup.sh脚本。
 > - （出现Success则忽略这一步。）运行HTML5Setup.sh脚本如果没有出现`Success`则进入`Engine\Platforms\HTML5\Build\BatchFiles`打开`Build_All_HTML5_libs.sh`将第四行用#注释掉，然后取消注释第五行（去掉#）查看报错提示已知的报错提示是CMake报错，有版本不对问题，缓存问题（如果有其他的报错请通过[BILIBILI：c釸晨](https://space.bilibili.com/320495524?spm_id_from=333.1007.0.0)联系我）如果CMake报错的话直接去`\Engine\Platforms\HTML5`搜索CMakeCatch.List文件，这个是运行时的缓存文件，有它在必定会阻止CMake运行。安装正确版本并且删除CMakeCatch.List后再去git bash里运行HTML5Setup.sh脚本
 > - 成功时的界面![Success](./Image/success.png)
