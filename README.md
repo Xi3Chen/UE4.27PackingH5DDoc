@@ -67,7 +67,7 @@
 
 ![checkCmakeVersion](./Image/checkCmakeVersion.png)
 
-- Python 3.*(我在VS里安装了，可以在cmd中输入python查看python版本。Github上原话：(watch out for Windows Python app installer "app execution aliases" which may cause problems - recommend setting these to disabled - see 
+- Python 3.*(我在VS里安装了，可以在cmd中输入python查看python版本，请尽量避免使用高版本Pythone。亲测在3.12和3.13环境下无法正常运行HTML5Setup.sh。Github上原话：(watch out for Windows Python app installer "app execution aliases" which may cause problems - recommend setting these to disabled - see 
 [this Stack Overflow post](https://stackoverflow.com/a/61958044)))
 
 ![CheckPythonVersion](./Image/CheckPythonVersion.png)
