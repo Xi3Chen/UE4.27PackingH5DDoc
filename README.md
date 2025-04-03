@@ -174,7 +174,7 @@
 老生常谈了，自己百度
 
 ## 3. HTML5使用WebSocket和HTTP与服务器通信
-知道的人可能觉得没啥但是踩坑时真的容易崩溃。目前虚幻商城上WebSocket相关的插件在该源码版本上无法打包H5平台后使用。本人正在着手解决这个问题。如果有最新进展。我会在此贴上websocket插件。
+websocket可以看我开源的一个插件（[UnrealSuperWebSocket](https://github.com/Xi3Chen/UnrealSuperWebSocket)）。按照文档做就能实现WebSocket插件的安装（非开箱即用，需要做一些设置）。
 
 HTTP通信插件推荐使用开源的VaRest
 
@@ -198,6 +198,11 @@ HTTP通信插件推荐使用开源的VaRest
 > - [Varest(点击直达Github仓库)](https://github.com/ufna/VaRest)
 > 
 > 推荐理由：为H5平台提供HTTP通信。是一个免费开源还牛逼的插件。支持二进制内容传输，插件还支持Json，并且使用非常简单。
+> 
+> - [UnrealSuperWebSocket(点击直达Github仓库)](https://github.com/Xi3Chen/UnrealSuperWebSocket)
+> 推荐理由：本人开发。欢迎提建议。
+
+
 ### 7.2 资产清理工具
 > - [assets cleaner project cleaning tool（点击直达虚幻商城）](https://www.unrealengine.com/marketplace/en-US/product/assets-cleaner-project-cleaning-tool)
 > 
